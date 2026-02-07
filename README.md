@@ -201,7 +201,6 @@ REDIS_URL="redis://your-redis-host:6379"
 | `mcp-handler` | MCP protocol + session management |
 | `@modelcontextprotocol/sdk` | MCP type definitions |
 | `jose` | JWT/JWKS verification |
-| `@vercel/functions` | Vercel runtime helpers |
 | `zod` | Parameter validation |
 
 ## License
