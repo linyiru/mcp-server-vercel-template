@@ -51,10 +51,17 @@ export function registerTools(server: McpServer, _userId: string) {
   registerWeatherTools(server)
 
   // Documentation tool (static .md files)
-  server.tool(
+  server.registerTool(
     'get_documentation',
-    `Get server documentation. Available topics:\n${getDocTopicList()}`,
-    { topic: z.enum(DOC_TOPICS).describe('Documentation topic to retrieve') },
+    {
+      title: 'Get Documentation',
+      description: `Get server documentation. Available topics:\n${getDocTopicList()}`,
+      inputSchema: { topic: z.enum(DOC_TOPICS).describe('Documentation topic to retrieve') },
+      annotations: {
+        readOnlyHint: true,
+        openWorldHint: false,
+      },
+    },
     async ({ topic }) => ({
       content: [{ type: 'text', text: getDocumentation(topic) }],
     })
