@@ -1,0 +1,24 @@
+{
+  "name": "mcp-server-vercel-template",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "npx vercel dev",
+    "build": "bun scripts/build.ts",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.14.0",
+    "@vercel/functions": "^2.0.0",
+    "hono": "^4.11.4",
+    "jose": "^6.0.0",
+    "mcp-handler": "^1.0.6",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.9",
+    "typescript": "^5.9.2"
+  }
+}
