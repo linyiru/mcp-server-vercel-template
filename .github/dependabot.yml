@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      mcp:
+        patterns:
+          - "@modelcontextprotocol/*"
+          - "mcp-handler"
+      web-framework:
+        patterns:
+          - "hono"
+          - "@vercel/*"
+      security:
+        patterns:
+          - "jose"
+          - "zod"
+    open-pull-requests-limit: 5
