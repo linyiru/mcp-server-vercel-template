@@ -50,11 +50,18 @@ const WEATHER_CODES: Record<number, string> = {
 }
 
 export function registerWeatherTools(server: McpServer) {
-  server.tool(
+  server.registerTool(
     'get_weather',
-    'Get current weather for a city. Uses Open-Meteo free API (no API key needed).',
     {
-      city: z.string().describe('City name (e.g., "Tokyo", "New York", "London")'),
+      title: 'Get Weather',
+      description: 'Get current weather for a city. Uses Open-Meteo free API (no API key needed).',
+      inputSchema: {
+        city: z.string().describe('City name (e.g., "Tokyo", "New York", "London")'),
+      },
+      annotations: {
+        readOnlyHint: true,
+        openWorldHint: true,
+      },
     },
     async ({ city }) => {
       // Geocode the city name to coordinates
